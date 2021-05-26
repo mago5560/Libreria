@@ -1,2 +1,19 @@
 <p>home works!</p>
 HOME
+
+<div class="aligner">
+  <mat-card class="aligner-center-item">
+    <mat-card-title>
+      Login Form
+    </mat-card-title>
+    <mat-card-content>
+      <form id="home-form" #lForm="ngForm" [formGroup]="homeForm" (ngSubmit)="submitHome()" novalidate>
+        
+      </form>
+    </mat-card-content>
+    <mat-card-actions style="text-align: right;">
+      <button mat-raised-button type="submit" form="home-form"> Sign In</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+ 

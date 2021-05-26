@@ -17,11 +17,11 @@ export class StorageService {
 
    setCurrentSession(session: Session): void {
     this.currentSession = session;
-    this.localStorageService.setItem('currentUser', JSON.stringify(session));
+    this.localStorageService.setItem('access_token', JSON.stringify(session));
   }
 
    loadSessionData(): Session{
-    var sessionStr = this.localStorageService.getItem('currentUser');
+    var sessionStr = this.localStorageService.getItem('access_token');
     return (sessionStr) ? <Session> JSON.parse(sessionStr) : null;
   }
 
@@ -30,7 +30,7 @@ export class StorageService {
   }
 
   removeCurrentSession(): void {
-    this.localStorageService.removeItem('currentUser');
+    this.localStorageService.removeItem('access_token');
     this.currentSession = null;
   }
 
