@@ -8,8 +8,8 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
 
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -18,11 +18,11 @@ import { MatSliderModule } from '@angular/material/slider';
     HomeComponent
   ],
   imports: [
+    MatSliderModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    BrowserAnimationsModule,
-    MatSliderModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
