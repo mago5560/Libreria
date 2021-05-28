@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StorageService } from '../core/services/storage.service';
 import {Session} from "../../app/core/models/session";
+import {ApiService} from "../core/services/api.service";
+import {LoginI} from "../core/models/logini";
 
 @Component({
   selector: 'app-login',
@@ -15,9 +17,12 @@ export class LoginComponent implements OnInit {
   public submitted: Boolean = false;
   public error: {code: number, message: string} = null;
   private loginSession: Session;
+  private loginI:LoginI;
+  hide = true;
 
   constructor(private formBuilder: FormBuilder,
     private storageService: StorageService,
+    private api: ApiService,
     private router: Router) { }
 
   ngOnInit() {
@@ -27,14 +32,29 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  
+
   public submitLogin(): void {
     this.submitted = true;
     this.error = null;
     if(this.loginForm.valid){
-
-      this.loginSession = new Session();
-      this.loginSession.token ='{ ""access_token"": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsiYmRzc2VjdXJlaWQiXSwidXNlcl9uYW1lIjoid296dmVsaSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2MjIwNTE1NTQsImF1dGhvcml0aWVzIjpbIkFETUlOIl0sImp0aSI6IjgxNGRkZjAwLTZhZTEtNGExNy04ZmZkLTIxNGU0MTczMDAzMiIsImNsaWVudF9pZCI6ImJkc2xpYnJlcmlhYXBwIn0.b8ga16bO441M1-8xx2A4D7SBmCxPCOGFf4Czgqs_dsc"}';
-      this.correctLogin(this.loginSession);
+      this.loginI= {
+        grant_type: 'password',
+        username: this.loginForm.get("username").value,
+        password: this.loginForm.get("password").value
+      }
+      
+      this.api.loginService(this.loginI).subscribe(data =>{
+        if(data){
+          this.loginSession = new Session();
+          let token =  JSON.stringify( data );
+          this.loginSession  = JSON.parse(token);
+          this.correctLogin(this.loginSession);
+        }
+      }, error =>{
+        console.log(error);
+      });
+      
     }
   }
 

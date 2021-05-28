@@ -1,4 +1,4 @@
 export class Session {
 
-    public token: string;
+    public access_token: string;
 }

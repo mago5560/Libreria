@@ -1,0 +1,33 @@
+.spacerNavBar {
+    flex: 1 1 auto;
+  }
+
+  .drawer-container {
+    width: auto;
+    height: 90%;
+  }
+  
+  .drawer-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .drawer-sidenav {
+    padding: 20px;
+  }
+
+
+  mat-sidenav {
+    width: 200px;
+  }
+  .main_content {
+    width:100%; 
+    height: calc(100vh - 100px); 
+    box-sizing: border-box; 
+  }
+
+
+
+  

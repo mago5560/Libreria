@@ -8,25 +8,28 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
+import {HttpClientModule} from '@angular/common/http';
+
+import{MaterialModule} from '../app/material/material.module';
+import { BodegaComponent } from './bodega/bodega.component';
+import { BodegatecleoComponent } from './bodega/tecleo/bodegatecleo.component';
+import { FooterbarComponent } from './footerbar/footerbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BodegaComponent,
+    BodegatecleoComponent,
+    FooterbarComponent
   ],
   imports: [
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    HttpClientModule,
+    MaterialModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),

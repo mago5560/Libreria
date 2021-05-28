@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Session } from '../models/session';
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,13 +37,15 @@ export class StorageService {
   }
 
   isAuthenticated(): boolean {
-    return (this.getCurrentToken() != null) ? true : false;
+    const helper = new JwtHelperService();
+    return (this.getCurrentToken() != null && !helper.isTokenExpired(this.getCurrentToken())) ? true : false;
   };
 
+  
 
   getCurrentToken(): string {
     var session = this.getCurrentSession();
-    return (session && session.token) ? session.token : null;
+    return (session && session.access_token) ? session.access_token : null;
   };
 
   logout(): void{

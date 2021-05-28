@@ -1,7 +1,7 @@
-import { User } from './user';
+import { AuthorizationApi } from './authorizationapi';
 
-describe('User', () => {
+describe('AuthorizationApi', () => {
   it('should create an instance', () => {
-    expect(new User()).toBeTruthy();
+    expect(new AuthorizationApi()).toBeTruthy();
   });
 });

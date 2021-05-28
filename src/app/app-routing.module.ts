@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
+import { BodegaComponent } from './bodega/bodega.component';
 
 
 const routes: Routes = [{ path: 'home', component: HomeComponent , canActivate: [AuthorizationGuard] },
+{ path: 'bodega', component: BodegaComponent , canActivate: [AuthorizationGuard] },
 { path: 'login', component: LoginComponent },
 { path: '', redirectTo: '/home', pathMatch: 'full' },
 { path: '**', redirectTo: '/home' }];
