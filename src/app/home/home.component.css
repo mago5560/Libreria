@@ -29,5 +29,34 @@
   }
 
 
+  .full-width {
+    width: 100%;
+  }
 
+  .full-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    
+  }
+
+  .mat-icon {
+    margin-right: 8px;
+  }
+  
+ mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+  
   

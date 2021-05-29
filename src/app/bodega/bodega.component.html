@@ -2,10 +2,61 @@
     <button mat-icon-button routerLink="/home" >
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <span>Bodega</span>
+    <span>Filtro de Bodega</span>
     <span class="spacerNavBar"></span>
   </mat-toolbar>
 
-  <div class="content-body">
+  
+        <mat-card>
+      <mat-card-header>
+      
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="row">
+          <mat-form-field>
+            <input matInput (keyup)="getDataFilter($event.target.value)" placeholder="Buscar Bodega">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
 
-  </div>
+      </mat-card-content>
+      <mat-card-actions style="text-align: right;">
+       <button type="button" mat-raised-button color="primary" (click)="dialogBodega()">
+              <mat-icon>add</mat-icon>
+              <span>Grabar</span>
+            </button>
+          
+      </mat-card-actions>
+    </mat-card>
+
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="bodegaId">
+      <th mat-header-cell *matHeaderCellDef> Bodega </th>
+      <td mat-cell *matCellDef="let element"> {{element.bodegaId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+      <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="editar">
+      <th mat-header-cell *matHeaderCellDef>Editar</th>
+      <td mat-cell *matCellDef="let element">
+        <button type="button" mat-icon-button color="primary" (click)="dialogBodega(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5 ,10, 20,50,100]" [pageSize]="5" [showFirstLastButtons]="true"></mat-paginator>
+
+</div>
+
+<!--<div class="content-body"></div>-->

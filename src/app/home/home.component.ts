@@ -1,6 +1,5 @@
 import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { ApiService } from '../core/services/api.service';
 import { StorageService } from '../core/services/storage.service';
@@ -12,7 +11,9 @@ import { StorageService } from '../core/services/storage.service';
 })
 export class HomeComponent implements OnInit {
   public submitted: Boolean = false;
-  @Input() sidenav: MatSidenav
+ 
+
+
 
   constructor(private api: ApiService,
     private storageService: StorageService,
@@ -30,5 +31,6 @@ export class HomeComponent implements OnInit {
   logout(){
     this.storageService.logout();
   }
+
 
 }

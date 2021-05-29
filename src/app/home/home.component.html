@@ -17,37 +17,47 @@
 <mat-sidenav-container class="sidenav-container">
       <mat-sidenav #sidenav  opened>
             <!--mode="side"-->
+
+            <span class="full-width">Opciones</span>
+                    <button mat-button class="menu-button" routerLink="/" > 
+                      <mat-icon class="mat-icon">chevron_right</mat-icon>
+                      <span>Ventas</span>
+                    </button> 
             
-            <a>Opciones</a>
-           <button mat-menu-item routerLink="/" >
-              <span>Ventas</span><mat-icon  style="float: right;">chevron_right</mat-icon>
-          </button> 
+                    <button mat-button class="menu-button"  routerLink="/" >
+                        <mat-icon class="mat-icon">chevron_right</mat-icon>
+                        <span>Compras</span>                        
+                    </button> 
+      
+                    <button mat-button class="menu-button" routerLink="/" >
+                        <mat-icon class="mat-icon">chevron_right</mat-icon>
+                        <span>Cierre De Caja</span>
+                    </button> 
+    
+        
+             
+            <mat-divider></mat-divider>
+             <span class="full-width">Maestros</span>
+        
+           <button mat-button class="menu-button"  routerLink="/bodega" > 
+           <mat-icon class="mat-icon">chevron_right</mat-icon>
+           <span>Bodega</span>
+           </button> 
+            
+            <button mat-button class="menu-button"  routerLink="/" >
+                  <mat-icon class="mat-icon">chevron_right</mat-icon>
+                  <span>Cliente</span>
+            </button> 
+            <button mat-button class="menu-button"  routerLink="/" >
+                   <mat-icon class="mat-icon">chevron_right</mat-icon>
+                   <span>Proveedor</span>
+            </button> 
        
-          <button mat-button routerLink="/" >
-                    <span>Compras</span>
-                    <mat-icon style="float: right;">chevron_right</mat-icon>
-          </button> 
-
-          <button mat-button routerLink="/" >
-                     Cierre De Caja
-                    <mat-icon style="float: right;">chevron_right</mat-icon>
-          </button> 
-
-  
-           <a>Maestros</a>
-          <button mat-button routerLink="/bodega" >
-                    Bodegas <mat-icon style="float: right;">chevron_right</mat-icon>
-          </button> 
-          <button mat-button routerLink="/" >
-                    Clientes <mat-icon style="float: right;">chevron_right</mat-icon>
-          </button> 
-          <button mat-button routerLink="/" >
-                    Proveedor <mat-icon style="float: right;">chevron_right</mat-icon>
-          </button> 
-
-        <a>Configuracion</a>
-         <button mat-button (click)="logout()" >
-                    Cerrar Sesion <mat-icon style="float: right;">chevron_right</mat-icon>
+        <mat-divider></mat-divider>
+         <span class="full-width">Configuracion</span>
+         <button mat-button class="menu-button"  (click)="logout()" >
+                   <mat-icon sclass="mat-icon">logout</mat-icon>
+                   <span>Cerrar Sesion</span>
           </button> 
 
 
@@ -57,9 +67,7 @@
             <div class="main_content">
                   
                 <div class="drawer-sidenav-content">
-                  <button type="button" mat-button (click)="buscarBogedas()">
-                    Buscar Bodegas ejemplo
-                  </button>
+                     <img mat-card-image class="full-img" src="https://dl.dropbox.com/s/9jxfxvnr090pkhk/Big-Data.jpeg" alt="Photo of a Shiba Inu">
                 </div>
             </div>
       </mat-sidenav-content>
@@ -67,69 +75,6 @@
 
 
 
-<!--
-<mat-drawer-container class="drawer-container" autosize>
-
-  <mat-drawer #drawer class="drawer-sidenav" mode="side">
-
-   <a>Maestros</a>
-    <button mat-menu-item routerLink="/bodega" >
-              Bodegas <mat-icon>chevron_right</mat-icon>
-    </button> 
-
-     <a>Opciones</a>
-    <button mat-menu-item [matMenuTriggerFor]="maestros">Maestros</button>
-    <mat-menu #maestros="matMenu">
-      <button mat-menu-item>Baikal oilfish</button>
-      <button mat-menu-item>Bala shark</button>
-      <button mat-menu-item>Ballan wrasse</button>
-      <button mat-menu-item>Bamboo shark</button>
-      <button mat-menu-item>Banded killifish</button>
-    </mat-menu>
-
-    <a>Configuracion</a> 
-     <button mat-menu-item (click)="logout()">
-          <mat-icon>logout</mat-icon>
-              Cerrar Sesion
-    </button> 
-
-  </mat-drawer>
-
-
-  <div class="drawer-sidenav-content">
-    <button type="button" mat-button (click)="buscarBogedas()">
-      Buscar Bodegas ejemplo
-    </button>
-  </div>
-
-</mat-drawer-container>
-
-
-<mat-sidenav-container class="sidenav-container">
-      <mat-sidenav #sidenav  opened>
-            <button mat-menu-item routerLink="/" >
-                  <mat-icon>home</mat-icon>
-                  Inicio
-            </button>
-
-            <button mat-menu-item routerLink="/persona" >
-                  <mat-icon>supervised_user_circle</mat-icon>
-                  Demo persona
-            </button>
-
-            <button mat-menu-item routerLink="/about" >
-                  <mat-icon>info</mat-icon>
-                  Quienes somos
-            </button>
-      </mat-sidenav>
-
-      <mat-sidenav-content>
-           <mat-card>Simple card</mat-card>
-      </mat-sidenav-content>
-</mat-sidenav-container>
--->
-
- 
 
 
 

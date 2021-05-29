@@ -57,12 +57,24 @@ export class ApiService {
 
 
 
-  getBodegas(): Observable<BodegaI> {
+  getBodegas(): Observable<BodegaI[]> {
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded;application/json; charset=utf-8',
        'Authorization': 'Bearer ' + this.storageService.getCurrentToken()
     })
-    return this.http.get<BodegaI>(this.url + 'bodegas', { headers: reqHeader });
+    return this.http.get<BodegaI[]>(this.url + 'bodegas', { headers: reqHeader });
   }
+
+
+
+  setBodegas(bodegaI:BodegaI) {
+    var reqHeader = new HttpHeaders({
+       'Content-Type': 'application/json',
+       'Authorization': 'Bearer ' + this.storageService.getCurrentToken()
+    })
+    console.log(JSON.stringify(bodegaI))
+    return this.http.post(this.url + 'bodegas', JSON.stringify(bodegaI) ,{ headers: reqHeader });
+  }
+
 
 }
