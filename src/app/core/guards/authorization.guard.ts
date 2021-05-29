@@ -13,7 +13,7 @@ export class AuthorizationGuard implements CanActivate {
   canActivate() {
     if(! this.storageService.isAuthenticated()){
        // not logged in so redirect to login page
-    this.router.navigate(['/login']);
+       this.router.navigate(['/login']);
       return false;
     }
     return true;

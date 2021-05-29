@@ -5,6 +5,7 @@ import { StorageService } from '../core/services/storage.service';
 import {Session} from "../../app/core/models/session";
 import {ApiService} from "../core/services/api.service";
 import {LoginI} from "../core/models/logini";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private storageService: StorageService,
     private api: ApiService,
-    private router: Router) { }
+    private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -53,6 +54,9 @@ export class LoginComponent implements OnInit {
         }
       }, error =>{
         console.log(error);
+        this.snackBar.open(error, 'Aceptar', {
+          duration: 4000,
+        });
       });
       
     }

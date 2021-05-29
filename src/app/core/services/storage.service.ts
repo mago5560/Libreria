@@ -38,7 +38,6 @@ export class StorageService {
 
   isAuthenticated(): boolean {
     const helper = new JwtHelperService();
-    
     return (this.getCurrentToken() != null && !helper.isTokenExpired(this.getCurrentToken())) ? true : false;
   };
 

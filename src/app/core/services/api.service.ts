@@ -65,8 +65,6 @@ export class ApiService {
     return this.http.get<BodegaI[]>(this.url + 'bodegas', { headers: reqHeader });
   }
 
-
-
   setBodegas(bodegaI:BodegaI) {
     var reqHeader = new HttpHeaders({
        'Content-Type': 'application/json',

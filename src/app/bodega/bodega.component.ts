@@ -33,7 +33,6 @@ export class BodegaComponent implements OnInit {
 
   buscarBogedas(){
     this.api.getBodegas().subscribe(data =>{
-      console.log(data);
       this._bodega = data;
       this.dataSource = new MatTableDataSource(this._bodega);
       this.dataSource.paginator = this.paginator;
@@ -58,7 +57,7 @@ export class BodegaComponent implements OnInit {
       (confirmDialog: boolean) => {
         if(confirmDialog){
          // this.toastr.success("Registro grabado correctamente", "Mensaje del Sistema");
-          this.snackBar.open('Persona creada correctamente', 'Aceptar', {
+          this.snackBar.open('Bodega creada correctamente', 'Aceptar', {
             duration: 2000,
           });
           this.buscarBogedas()

@@ -1,7 +1,4 @@
-import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ApiService } from '../core/services/api.service';
+import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../core/services/storage.service';
 
 @Component({
@@ -10,22 +7,10 @@ import { StorageService } from '../core/services/storage.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public submitted: Boolean = false;
  
-
-
-
-  constructor(private api: ApiService,
-    private storageService: StorageService,
-    private router: Router) { }
+  constructor(private storageService: StorageService) { }
 
   ngOnInit() {
-  }
-
-  buscarBogedas(){
-    this.api.getBodegas().subscribe(data =>{
-      console.log(data);
-   });
   }
 
   logout(){
