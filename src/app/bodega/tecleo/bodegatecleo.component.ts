@@ -44,7 +44,14 @@ export class BodegatecleoComponent implements OnInit {
     }
 
     this.api.setBodegas(this.bodega).subscribe(data => {
+        console.log(data);
         this.dialogRef.close(true);
     })
   }
+  //249 USD
+  //1078 Q
+  //224 Q 
+
+  
 }
+

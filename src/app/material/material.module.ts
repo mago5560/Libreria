@@ -16,11 +16,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
-
+import{MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule,MatButtonModule, MatCheckboxModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule,MatSidenavModule,MatTableModule,MatSortModule,MatPaginatorModule,MatFormFieldModule,MatInputModule,MatDialogModule,MatSnackBarModule,MatListModule],
-  exports: [MatButtonModule, MatCheckboxModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule,MatSidenavModule,MatTableModule,MatSortModule,MatPaginatorModule,MatFormFieldModule,MatInputModule,MatDialogModule,MatSnackBarModule,MatListModule],
+  imports: [CommonModule,MatButtonModule, MatCheckboxModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule,MatSidenavModule,MatTableModule,MatSortModule,MatPaginatorModule,MatFormFieldModule,MatInputModule,MatDialogModule,MatSnackBarModule,MatListModule,MatSelectModule,MatSlideToggleModule],
+  exports: [MatButtonModule, MatCheckboxModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule,MatSidenavModule,MatTableModule,MatSortModule,MatPaginatorModule,MatFormFieldModule,MatInputModule,MatDialogModule,MatSnackBarModule,MatListModule,MatSelectModule,MatSlideToggleModule],
 })
 export class MaterialModule { }

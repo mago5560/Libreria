@@ -1,6 +1,6 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { BodegaI } from '../core/models/bodegai';
@@ -15,18 +15,20 @@ import { BodegatecleoComponent } from './tecleo/bodegatecleo.component';
 })
 export class BodegaComponent implements OnInit {
   bodegId:number;
-  bodegaAdd:BodegaI;
   _bodega = [];
 
 
   constructor(private api: ApiService, private dialog: MatDialog, private snackBar: MatSnackBar) { 
+   
     this.buscarBogedas();
   }
 
   ngOnInit(): void {
+     this.paginator._intl.itemsPerPageLabel = "Registros por página";
+  
   }
 
-  displayedColumns: string[] = ['bodegaId', 'descripcion','editar'];
+  displayedColumns: string[] = ['bodegaId', 'descripcion','opciones'];
   dataSource: MatTableDataSource<BodegaI>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
@@ -65,5 +67,19 @@ export class BodegaComponent implements OnInit {
       }
     );
   }
+
+
+  eliminar(bodega: BodegaI) {
+    const respuesta = confirm("¿Esta seguro que desea eliminar el registro?. Ya no podra recuperarlo.");
+    if (respuesta) {
+      this.api.eliminarBodega(bodega).subscribe(data => {
+        this.snackBar.open('Bodega eliminada correctamente', 'Aceptar', {
+          duration: 2000,
+        });
+        this.buscarBogedas();
+      })
+    }
+  }
+
 
 }

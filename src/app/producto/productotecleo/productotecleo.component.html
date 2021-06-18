@@ -1,0 +1,140 @@
+<h2 mat-dialog-title>{{ tituloForm }}</h2>
+<mat-dialog-content [formGroup]="frm">
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese la descripcion del articulo"
+        type="text"
+        name="descripcion"
+        formControlName="descripcion"
+      />
+    </mat-form-field>
+  </div>
+
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 1 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.descripcion.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese la fecha"
+        type="date"
+        name="fechaSaldo"
+        formControlName="fechaSaldo"
+      />
+    </mat-form-field>
+  </div>
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 2 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.fechaSaldo.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Seleccione la categoria</mat-label>
+      <mat-select formControlName="categoria" required>
+        <mat-option>Ninguno</mat-option>
+        <mat-option
+          *ngFor="let categorias of _categoriaData"
+          [value]="categorias.idCategoriaProducto"
+        >
+          {{ categorias.descripcion }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="frm.controls.categoria.hasError('required')"
+        >El campo es requerido</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Seleccione la marca</mat-label>
+      <mat-select formControlName="marca" required>
+        <mat-option>Ninguno</mat-option>
+        <mat-option *ngFor="let marcas of _marcaData" [value]="marcas.idMarca">
+          {{ marcas.descripcion }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="frm.controls.marca.hasError('required')"
+        >El campo es requerido</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-slide-toggle formControlName="perecedero">
+      Producto perecedero.
+    </mat-slide-toggle>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese el valor unitario"
+        type="number"
+        name="valorUnidad"
+        formControlName="valorUnidad"
+      />
+    </mat-form-field>
+  </div>
+
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 3 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.valorUnidad.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese la cantidad"
+        type="number"
+        name="saldo"
+        formControlName="saldo"
+      />
+    </mat-form-field>
+  </div>
+
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 4 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.saldo.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+
+  <button
+    type="button"
+    mat-raised-button
+    color="primary"
+    style="float: right"
+    (click)="addItem()"
+  >
+    <span>Grabar</span>
+  </button>
+
+  <button
+    type="button"
+    mat-raised-button
+    color="warn"
+    style="float: left"
+    (click)="cerrar()"
+  >
+    <span>Cancelar</span>
+  </button>
+</mat-dialog-content>

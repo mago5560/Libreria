@@ -1,37 +1,90 @@
-
-
 <div class="body">
-    <div class="login">
+  <div class="login">
     <div class="aligner">
       <mat-card class="aligner-center-item">
         <mat-card-title>
-            <img src="../../../assets/images/user.png" width="50%">
-            <!--<h1>Login</h1>-->
+          <img src="../../../assets/images/user.png" width="50%" />
+          <!--<h1>Login</h1>-->
         </mat-card-title>
         <mat-card-content>
-          <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
-            <mat-form-field style="width: 100%; margin-bottom: 10px;" [ngClass]="{'mat-input-invalid': submitted && error?.code == 1}">
-              <input matInput type="text" formControlName="username" placeholder="Usuario" />
-              <mat-hint style="color: red;" *ngIf="submitted && error?.code == 1 && !loginForm.controls.username.hasError('required')">{{error.message}}</mat-hint>
-              <mat-hint style="color: red;" *ngIf="submitted && loginForm.controls.username.hasError('required')">El Campo es requerdio</mat-hint>
+          <form
+            id="login-form"
+            #lForm="ngForm"
+            [formGroup]="loginForm"
+            (ngSubmit)="submitLogin()"
+            novalidate
+          >
+            <mat-form-field
+              style="width: 100%; margin-bottom: 10px"
+              [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 1 }"
+            >
+              <input
+                matInput
+                type="text"
+                formControlName="username"
+                placeholder="Usuario"
+              />
+              <mat-hint
+                style="color: red"
+                *ngIf="
+                  submitted &&
+                  error?.code == 1 &&
+                  !loginForm.controls.username.hasError('required')
+                "
+                >{{ error.message }}</mat-hint
+              >
+              <mat-hint
+                style="color: red"
+                *ngIf="
+                  submitted && loginForm.controls.username.hasError('required')
+                "
+                >El Campo es requerdio</mat-hint
+              >
             </mat-form-field>
-    
-            <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': submitted && error?.code == 2}">
-             
-             <input matInput [type]="hide ? 'password' : 'text'"  formControlName="password" placeholder="Contraseña"/>
-              
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 
-              <mat-hint style="color: red;" *ngIf="submitted && error?.code == 2 && !loginForm.controls.password.hasError('required')">{{error.message}}</mat-hint>
-              <mat-hint style="color: red;" *ngIf="submitted && loginForm.controls.password.hasError('required')">El campo es requerido</mat-hint>
+            <mat-form-field
+              style="width: 100%"
+              [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 2 }"
+            >
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                formControlName="password"
+                placeholder="Contraseña"
+              />
+
+              <mat-icon matSuffix (click)="hide = !hide">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+
+              <mat-hint
+                style="color: red"
+                *ngIf="
+                  submitted &&
+                  error?.code == 2 &&
+                  !loginForm.controls.password.hasError('required')
+                "
+                >{{ error.message }}</mat-hint
+              >
+              <mat-hint
+                style="color: red"
+                *ngIf="
+                  submitted && loginForm.controls.password.hasError('required')
+                "
+                >El campo es requerido</mat-hint
+              >
             </mat-form-field>
-
-
-
           </form>
         </mat-card-content>
-        <mat-card-actions style="text-align: right;">
-          <button mat-raised-button color="primary" type="submit" form="login-form">Ingresar</button>
+        <mat-card-actions style="text-align: right">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            form="login-form"
+          >
+            Ingresar
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>

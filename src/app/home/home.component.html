@@ -1,81 +1,77 @@
-  <mat-toolbar color="primary">
-    <button mat-icon-button  (click)="sidenav.toggle()" >
-     
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
     <mat-icon *ngIf="sidenav.opened">arrow_back</mat-icon>
-    </button>
-    <span>Libreria</span>
-    <span class="spacerNavBar"></span>
+  </button>
+  <span>Libreria</span>
+  <span class="spacerNavBar"></span>
 
-    <button mat-icon-button (click)="logout()" >
-      <mat-icon>logout</mat-icon>
-    </button>
-  </mat-toolbar>
-  
-
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav #sidenav  opened>
-            <!--mode="side"-->
+  <mat-sidenav #sidenav opened>
+    <!--mode="side"-->
 
-            <span class="full-width">Opciones</span>
-                    <button mat-button class="menu-button" routerLink="/" > 
-                      <mat-icon class="mat-icon">chevron_right</mat-icon>
-                      <span>Ventas</span>
-                    </button> 
-            
-                    <button mat-button class="menu-button"  routerLink="/" >
-                        <mat-icon class="mat-icon">chevron_right</mat-icon>
-                        <span>Compras</span>                        
-                    </button> 
-      
-                    <button mat-button class="menu-button" routerLink="/" >
-                        <mat-icon class="mat-icon">chevron_right</mat-icon>
-                        <span>Cierre De Caja</span>
-                    </button> 
-    
-        
-             
-            <mat-divider></mat-divider>
-             <span class="full-width">Maestros</span>
-        
-           <button mat-button class="menu-button"  routerLink="/bodega" > 
-           <mat-icon class="mat-icon">chevron_right</mat-icon>
-           <span>Bodega</span>
-           </button> 
-            
-            <button mat-button class="menu-button"  routerLink="/" >
-                  <mat-icon class="mat-icon">chevron_right</mat-icon>
-                  <span>Cliente</span>
-            </button> 
-            <button mat-button class="menu-button"  routerLink="/" >
-                   <mat-icon class="mat-icon">chevron_right</mat-icon>
-                   <span>Proveedor</span>
-            </button> 
-       
-        <mat-divider></mat-divider>
-         <span class="full-width">Configuracion</span>
-         <button mat-button class="menu-button"  (click)="logout()" >
-                   <mat-icon sclass="mat-icon">logout</mat-icon>
-                   <span>Cerrar Sesion</span>
-          </button> 
+    <span class="full-width">Opciones</span>
+    <button mat-button class="menu-button" routerLink="/salida">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Ventas</span>
+    </button>
 
+    <button mat-button class="menu-button" routerLink="/ingreso">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Compras</span>
+    </button>
 
-      </mat-sidenav>
+    <mat-divider></mat-divider>
+    <span class="full-width">Maestros</span>
 
-      <mat-sidenav-content>
-            <div class="main_content">
-                  
-                <div class="drawer-sidenav-content">
-                     <img mat-card-image class="full-img" src="https://dl.dropbox.com/s/9jxfxvnr090pkhk/Big-Data.jpeg" alt="Photo of a Shiba Inu">
-                </div>
-            </div>
-      </mat-sidenav-content>
+    <button mat-button class="menu-button" routerLink="/bodega">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Bodega</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/categoria">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Categoria Articulo</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/marca">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Marca</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/producto">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Producto</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/cliente">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Cliente</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/proveedor">
+      <mat-icon class="mat-icon">chevron_right</mat-icon>
+      <span>Proveedor</span>
+    </button>
+
+    <mat-divider></mat-divider>
+    <span class="full-width">Configuracion</span>
+    <button mat-button class="menu-button" (click)="logout()">
+      <mat-icon sclass="mat-icon">logout</mat-icon>
+      <span>Cerrar Sesion</span>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="main_content">
+      <div class="drawer-sidenav-content">
+        <img
+          mat-card-image
+          class="full-img"
+          src="https://dl.dropbox.com/s/9jxfxvnr090pkhk/Big-Data.jpeg"
+          alt="Photo of a Shiba Inu"
+        />
+      </div>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-
-
-
- 

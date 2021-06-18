@@ -1,0 +1,28 @@
+.content-body {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 90%;
+  margin-right: 8px;
+}
+
+app-fab--absolute {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .app-fab--absolute {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}

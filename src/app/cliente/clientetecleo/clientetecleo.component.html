@@ -1,0 +1,116 @@
+<h2 mat-dialog-title>{{ tituloForm }}</h2>
+<mat-dialog-content [formGroup]="frm">
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese el nombre completo"
+        type="text"
+        name="nombre"
+        formControlName="nombre"
+      />
+    </mat-form-field>
+  </div>
+
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 1 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.nombre.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese la direccion"
+        type="text"
+        name="direccion"
+        formControlName="direccion"
+      />
+    </mat-form-field>
+  </div>
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 2 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.direccion.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese el NIT sin (-)"
+        type="number"
+        name="nit"
+        formControlName="nit"
+      />
+    </mat-form-field>
+  </div>
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 3 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.nit.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese el telefono"
+        type="number"
+        name="telefono"
+        formControlName="telefono"
+      />
+    </mat-form-field>
+  </div>
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 4 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.telefono.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+  <div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese el mail"
+        type="email"
+        name="mail"
+        formControlName="mail"
+      />
+    </mat-form-field>
+  </div>
+  <div [ngClass]="{ 'mat-input-invalid': submitted && error?.code == 5 }">
+    <mat-hint
+      style="color: red"
+      *ngIf="submitted && frm.controls.mail.hasError('required')"
+      >El campo es requerido</mat-hint
+    >
+  </div>
+
+  <button
+    type="button"
+    mat-raised-button
+    color="primary"
+    style="float: right"
+    (click)="addItem()"
+  >
+    <span>Grabar</span>
+  </button>
+
+  <button
+    type="button"
+    mat-raised-button
+    color="warn"
+    style="float: left"
+    (click)="cerrar()"
+  >
+    <span>Cancelar</span>
+  </button>
+</mat-dialog-content>
